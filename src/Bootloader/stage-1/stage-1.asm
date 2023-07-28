@@ -1,5 +1,5 @@
 org 0x7c00
-bits 16
+[bits 16]
 
 main:
 	; setup segments
@@ -19,6 +19,7 @@ main:
 	mov dl, [CURR_DISK]   							; disk index
 	mov al, (stage_2_end - stage_2_start) / 512     ; size of stage-2
 	mov ch, 0 									    ; first cylinder
+	mov cl, 2										; start sector
 	mov dh, 0                                       ; first head
 	mov bx, 0x7c00 + 512                            ; sector address 
 	int 13h										    ; disk interrupt

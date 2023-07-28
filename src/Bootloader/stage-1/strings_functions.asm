@@ -39,3 +39,32 @@ print_string_with_new_line:
 	call print_string
 	call new_line
 	ret
+
+print_number:
+	push ax
+	push cx
+	push dx
+	push bx
+
+	xor cx, cx
+	mov bx, 10
+
+.every_digit:
+	xor dx, dx
+	div bx
+	push dx
+	inc cx
+	cmp ax, 0
+	jnz .every_digit
+
+.print:
+	pop ax
+	add al, '0'
+	call print_char
+	loop .print
+
+	pop bx
+	pop dx
+	pop cx
+	pop ax
+	ret
