@@ -29,9 +29,10 @@ print_string:
 
 new_line:
 	push ax
-	mov al, 0xa ; '\n' for new line
-	mov ah, 0eh ; print chat code for int 10h
-	int 10
+	mov al, 13
+    call print_char
+    mov al, 10
+    call print_char
 	pop ax
 	ret
 	
@@ -68,3 +69,11 @@ print_number:
 	pop cx
 	pop ax
 	ret
+
+clear_screen:
+ 	push ax
+    mov ah, 0x00
+    mov al, 0x03
+    int 0x10
+    pop ax
+    ret

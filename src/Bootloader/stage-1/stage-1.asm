@@ -26,7 +26,7 @@ main:
 
 	; enter stage-2
 	mov bx, JUMP_MSG
-	call print_string
+	call print_string_with_new_line
 
 	jmp stage_2_start
 

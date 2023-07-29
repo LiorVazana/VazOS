@@ -14,7 +14,7 @@ data_descriptor:
     dw 0xffff
     dw 0
     db 0
-    db 0b10011010
+    db 0b10010010
     db 0b11001111
     db 0
 GDT_end:
