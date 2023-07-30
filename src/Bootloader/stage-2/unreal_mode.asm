@@ -7,6 +7,11 @@ enter_unreal_mode:
 	or eax, 1     
 	mov cr0, eax
 
+    ;update segments
+    mov ax, DATA_SEG
+    mov ds, ax
+    mov es, ax
+
     ; exit protected mode
     mov eax, cr0  
 	xor eax, 1     

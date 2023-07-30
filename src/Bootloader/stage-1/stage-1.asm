@@ -15,11 +15,11 @@ main:
 	mov sp, 0x7c00
 
 	; load stage-2 from disk to RAM
-	mov ah, 02h            						    ; read mode
-	mov dl, [CURR_DISK]   							; disk index
+	mov ah, 02h                                     ; read mode
+	mov dl, [CURR_DISK]                             ; disk index
 	mov al, (stage_2_end - stage_2_start) / 512     ; size of stage-2
 	mov ch, 0 									    ; first cylinder
-	mov cl, 2										; start sector
+	mov cl, 2                                       ; start sector
 	mov dh, 0                                       ; first head
 	mov bx, 0x7c00 + 512                            ; sector address 
 	int 13h										    ; disk interrupt
