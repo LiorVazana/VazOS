@@ -7,4 +7,10 @@ enter_protected_mode:
 	mov eax, cr0  
 	or eax, 1     
 	mov cr0, eax
+
+	;update segments
+    mov ax, DATA_SEG
+    mov ds, ax
+    mov es, ax
+
     ret

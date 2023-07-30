@@ -28,4 +28,4 @@ start_protected_mode:
 	mov al, 'A'
 	mov [0xb8000], al
 
-	jmp $
+	jmp kernel_start

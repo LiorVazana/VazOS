@@ -8,11 +8,14 @@ stage_2_start:
 	align 512, db 0
 stage_2_end:	
 	
-	
+
 kernel_start:
 	mov al, 'B'
 	mov [0xb8000], al
 
 	;%incbin ""
 	align 512, db 0
+
+	jmp $
+
 kernel_end:

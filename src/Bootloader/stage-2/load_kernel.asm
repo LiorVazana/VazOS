@@ -8,5 +8,5 @@ KERNEL_ADDR equ 0x100000
     mov cl, 2 + (stage_2_end - stage_2_start) / 512   ; start sector
     mov dh, 0                                         ; first head
     mov bx, 0x7e00 + (stage_2_end - stage_2_start)    ; sector address
-    ;int 13
+    int 13h
     ret
