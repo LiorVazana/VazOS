@@ -1,2 +1,0 @@
-KERNEL_ADDR equ 0x1000
-

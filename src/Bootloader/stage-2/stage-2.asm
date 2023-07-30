@@ -4,12 +4,18 @@ STAGE2_ENTER_MSG db "In stage 2!", 0
  %include "src/Bootloader/stage-2/GDT.asm"
  %include "src/Bootloader/stage-2/a20_line.asm"
  %include "src/Bootloader/stage-2/protected_mode.asm"
+ %include "src/Bootloader/stage-2/unreal_mode.asm"
+
 
 stage_2_init:
 	mov bx, STAGE2_ENTER_MSG
 	call print_string_with_new_line
 
 	call enable_a20_line
+	call enter_unreal_mode
+
+	mov al, 'G'
+	call print_char
 
 	call enter_protected_mode
 
